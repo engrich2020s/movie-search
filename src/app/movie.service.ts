@@ -7,11 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class MovieService {
 
-  private url: string = `https://jsonmock.hackerrank.com/api/moviesdata?Year={input}`;
+  private url: string = 'https://jsonmock.hackerrank.com/api/moviesdata';
 
   constructor(private http: HttpClient) { }
 
-  getMovies(input: string) {
-    return this.http.get<any>(`${this.url}&s=${input}`);
+  getMovies(input: number): Observable<any> {
+    return this.http.get<any>(`${this.url}?Year=${input}`);
   }
 }

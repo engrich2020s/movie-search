@@ -8,16 +8,17 @@ import { Movie } from '../movie';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent {
-
+  Year!: number;
   movies: Movie[] = [];
 
   constructor(private movieService: MovieService) { }
 
-  ngOnInit(): void {
-    this.movieService.getMovies('Batman').subscribe(data  => {
-      this.movies = data.Search;
-      console.log(data);
-    });
+  searchMovie() {
+    if (this.Year) {
+      this.movieService.getMovies(this.Year).subscribe((data) => {
+        this.movies = data;
+        console.log(data);
+      })
+    }
   }
-
 }
