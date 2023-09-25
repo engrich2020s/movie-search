@@ -1,9 +1,5 @@
-export class Movie {
-    Title!: string;
-    Year!: string;
-    imdbID!: string;
-
+export interface Movie {
+    Title: string;
+    Year: number;
+    imdbID: string;
 }
-
-
-

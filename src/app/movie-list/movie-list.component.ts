@@ -8,15 +8,15 @@ import { Movie } from '../movie';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent {
-  Year!: number;
+  Year: number = 0;
   movies: Movie[] = [];
 
   constructor(private movieService: MovieService) { }
 
   searchMovie() {
-    if (this.Year) {
+    if (this.Year >= 0) {
       this.movieService.getMovies(this.Year).subscribe((data) => {
-        this.movies = data;
+        this.movies = data.data;
         console.log(data);
       })
     }
