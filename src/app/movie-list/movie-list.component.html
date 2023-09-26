@@ -1,12 +1,14 @@
-<h1>Movie List</h1>
-<div>
-  <label for="year">Search Movies</label>
+<h1>Search Movies</h1>
+<div class="search-area">
+  &nbsp;
   <input type="number" id="Year" [(ngModel)] = "Year">
+  &nbsp;
   <button (click)="searchMovie()">Search</button>
 </div>
-<ul *ngIf="movies">
-  <li *ngFor="let movie of movies">
+
+<div class="movies" *ngIf="movies ? movies : errorMessage">
+  <span *ngFor="let movie of movies">
     <p>{{ movie.Title }}</p>
-    <p>{{ movie.Year }}</p>
-  </li>
-</ul>
+  </span>
+  <span>{{ errorMessage }}</span>
+</div>

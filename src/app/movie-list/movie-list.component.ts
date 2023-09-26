@@ -10,6 +10,7 @@ import { Movie } from '../movie';
 export class MovieListComponent {
   Year: number = 0;
   movies: Movie[] = [];
+  errorMessage = "No results found";
 
   constructor(private movieService: MovieService) { }
 
@@ -19,6 +20,8 @@ export class MovieListComponent {
         this.movies = data.data;
         console.log(data);
       })
+    } else {
+      this.errorMessage;
     }
   }
 }
