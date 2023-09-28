@@ -18,7 +18,6 @@ export class MovieListComponent {
     if (this.Year >= 0) {
       this.movieService.getMovies(this.Year).subscribe((data) => {
         this.movies = data.data;
-        console.log(data);
       })
     } else {
       this.errorMessage;
